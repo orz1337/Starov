@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Задача Эйлера 2</title>
+        <style>
+            body 
+            {
+                text-align: center; 
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Задача:<br>
+            Каждый следующий элемент ряда Фибоначчи получается при сложении двух предыдущих. Начиная с 1 и 2, первые 10 элементов будут:<br>
+            1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...<br>
+            Найдите сумму всех четных элементов ряда Фибоначчи, которые не превышают четыре миллиона.
+        </p>
+        <p> Для просмотра результата откройте консоль разработчика </p>
+        <a href="index.html">Назад</a>
+        <script>
+            let i = 1;
+            let j = 2;
+            let k = j;
+            while (j < 4000000)
+            {
+                i += j;
+                j += i;
+                if (i % 2 == 0) k += i;
+                if (j % 2 == 0) k += j;
+            }
+            console.log(k);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Задача Эйлера 4</title>
+        <style>
+            body 
+            {
+                text-align: center; 
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Задача:<br>
+            Число-палиндром с обеих сторон (справа налево и слева направо) читается одинаково. 
+            Самое большое число-палиндром, полученное умножением двух двузначных чисел – 9009 = 91 × 99.<br>
+            Найдите самый большой палиндром, полученный умножением двух трехзначных чисел.
+        </p>
+        <p> Для просмотра результата откройте консоль разработчика </p>
+        <a href="index.html">Назад</a>
+        <script>
+            for (let i=999; i>99; i--)
+            {
+                let palindrome = i * 1000 + (i % 10) * 100 + (parseInt(i / 10) % 10) * 10 + parseInt(i / 100);
+                for (let j=999; j>99; j--)
+                {
+                    let k = parseInt(palindrome / j);
+                    if ((k * j == palindrome)&&(k>99)&&(k<1000))
+                    {
+                        console.log(k, j, palindrome);
+                        i=99;
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

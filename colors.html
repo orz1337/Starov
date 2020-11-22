@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цвета</title>
+    <style>
+        #field td 
+        {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .red
+        {
+            background-color: red;
+        }
+
+        .green
+        {
+            background-color: green;
+        }
+
+        .blue
+        {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html">Назад</a>
+	<table id="field"></table>
+	<script>
+        let size = prompt("Choice field size", 3); // выбор размера поля, по умолчанию 3*3
+        let table = document.getElementById('field'); // получения элемента с id = "field"
+        let colors = ['red', 'green', 'blue']; // массив с цветами - названиями классов
+        let cellsColor = []; // массив для проверки цветов всех ячеек
+        let stepCount = 0; // кол-во шагов
+
+        for (let i = 0; i < size; i++) // создание строк и ячеек в соответствии с заданными размерами
+        {
+            let tr = document.createElement('tr');
+            for (let j = 0; j < size; j++)
+            {
+                let td = document.createElement('td');
+                td.classList.add(colors[Math.floor(Math.random() * Math.floor(colors.length))]) // добавление случайного класса-цвета ячейке
+                td.addEventListener("click", step) // добавление использования функции step при нажатии на ячейку
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+
+        function step() // функция смены класса-цвета при нажатии на ячейку
+        {
+            stepCount += 1; // увеличение кол-ва шагов
+            let color = colors.indexOf(this.classList.item(0)) // номер(индекс) цвета текущей ячейки
+            if (color == colors.length-1) this.classList.add(colors[0]) // если цвет - последний в массиве, то ячейке присваивается класс с первым цветом
+            else this.classList.add(colors[color+1]) // в другом случае ячейке присваивается класс с цветом, номер(индекс) которого больше на 1 
+            this.classList.remove(colors[color]) // класс с предыдущим цветом удаляется	
+            if (isVictory(cells)) 
+            {
+                alert("Победа, количество шагов: "+ stepCount); // оповещение пользователя
+            }
+        }
+
+
+        function isVictory(cells) // функция с проверкой на победу
+        {
+            cellsColor = [];
+            for (let cell of cells) cellsColor.push(cell.classList.item(0)); // в массив добавляются классы всех ячеек
+            for (let i = 0; i < cellsColor.length; i++) // проверка на соответствие всех возможных цветов
+            {
+                while(cellsColor[i] != cellsColor[0]) return false; // если цвет какой-то из ячеек не соответствует цвету первой ячейки, то проверка не проходит
+            }
+            return true;
+        }
+
+        let cells = document.querySelectorAll('td'); // получение всех td
+    </script>
+</body>
+</html>

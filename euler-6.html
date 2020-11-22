@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Задача Эйлера 6</title>
+        <style>
+            body 
+            {
+                text-align: center; 
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Задача:<br>
+            Сумма квадратов первых десяти натуральных чисел равна<br>
+            1<sup>2</sup> + 2<sup>2</sup> + ... + 10<sup>2</sup> = 385<br>
+            Квадрат суммы первых десяти натуральных чисел равен<br>
+            (1 + 2 + ... + 10)<sup>2</sup> = 55<sup>2</sup> = 3025<br>
+            Следовательно, разность между суммой квадратов и квадратом суммы первых десяти натуральных чисел составляет 3025 − 385 = 2640.<br>
+            Найдите разность между суммой квадратов и квадратом суммы первых ста натуральных чисел.
+        </p>
+        <p> Для просмотра результата откройте консоль разработчика </p>
+        <a href="index.html">Назад</a>
+        <script>
+            let n = 100;
+            let sum_sqr = n*(n+1)*(2*n+1)/6;
+            let sqr_sum = Math.pow((n*(n+1)/2), 2);
+            n = sqr_sum-sum_sqr;
+            console.log(n);
+        </script>
+    </body>
+</html>

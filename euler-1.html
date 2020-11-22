@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Задача Эйлера 1</title>
+        <style>
+            body 
+            {
+                text-align: center; 
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Задача:<br>
+            Если выписать все натуральные числа меньше 10, кратные 3 или 5, то получим 3, 5, 6 и 9. Сумма этих чисел равна 23.<br>
+            Найдите сумму всех чисел меньше 1000, кратных 3 или 5.
+        </p>
+        <p> Для просмотра результата откройте консоль разработчика </p>
+        <a href="index.html">Назад</a>
+        <script>
+            let sum = 0;
+            for (let i=3; i<1000; i++) if ((i%3==0)||(i%5==0)) sum+=i;
+            console.log(sum);
+        </script>
+    </body>
+</html>
